@@ -4,7 +4,7 @@
   "description": "Testing excercise on Frontend developer / Vue.js",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon src/index.ts"
   },
   "keywords": [
@@ -14,6 +14,8 @@
   "author": "Peka",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1"
   }
