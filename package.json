@@ -5,7 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "mocha",
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "draw-DI-graph": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph.svg"
   },
   "keywords": [
     "excercise",
@@ -14,9 +16,13 @@
   "author": "Peka",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.3.9",
+    "@types/mocha": "^10.0.3",
     "chai": "^4.3.10",
+    "dependency-cruiser": "^15.0.0",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
+    "prettier": "^3.0.3",
     "ts-node": "^10.9.1"
   }
 }
