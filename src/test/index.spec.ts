@@ -46,19 +46,19 @@ describe('TreeStore construction object', () => {
     );
   });
   it('Should return item by id', () => {
-    expect(new TreeStore(items).getItem(7)).to.be.equal(
+    expect(new TreeStore(items).getItem(7)).to.deep.equal(
       { id: 7, parent: 4, type: null },
       'wrong element returned with id'
     );
   });
   it('Should return array of childrens by id', () => {
-    expect(new TreeStore(items).getChildren(5)).to.be.equal(
+    expect(new TreeStore(items).getChildren(5)).to.deep.equal(
       [],
       'wrong children returned by id'
     );
   });
   it('Should return array of childrens by id', () => {
-    expect(new TreeStore(items).getChildren(4)).to.be.equal(
+    expect(new TreeStore(items).getChildren(4)).to.deep.equal(
       [
         { id: 7, parent: 4, type: null },
         { id: 8, parent: 4, type: null }
@@ -67,7 +67,7 @@ describe('TreeStore construction object', () => {
     );
   });
   it('Should return array of childrens by id', () => {
-    expect(new TreeStore(items).getChildren(2)).to.be.equal(
+    expect(new TreeStore(items).getChildren(2)).to.deep.equal(
       [
         { id: 4, parent: 2, type: 'test' },
         { id: 5, parent: 2, type: 'test' },
@@ -76,8 +76,14 @@ describe('TreeStore construction object', () => {
       'wrong children returned by id'
     );
   });
-  it('Should return array of childrens by id', () => {
-    expect(new TreeStore(items).getAllChildren(2)).to.be.equal(
+  it('Should return empty array', () => {
+    expect(new TreeStore(items).getChildren(992)).to.deep.equal(
+      [],
+      'wrong children returned by id'
+    );
+  });
+  it('Should return array of all childrens by id', () => {
+    expect(new TreeStore(items).getAllChildren(2)).to.deep.members(
       [
         { id: 4, parent: 2, type: 'test' },
         { id: 5, parent: 2, type: 'test' },
@@ -88,14 +94,20 @@ describe('TreeStore construction object', () => {
       'wrong childrens returned by id'
     );
   });
-  it('Should return array of childrens by id', () => {
-    expect(new TreeStore(items).getAllParents(2)).to.be.equal(
+  it('Should return array of all parrents by id', () => {
+    expect(new TreeStore(items).getAllParents(7)).to.deep.equal(
       [
         { id: 4, parent: 2, type: 'test' },
         { id: 2, parent: 1, type: 'test' },
         { id: 1, parent: 'root' }
       ],
-      'wrong childrens returned by id'
+      'wrong parrents returned by id'
+    );
+  });
+  it('Should return empty array when id is not in items', () => {
+    expect(new TreeStore(items).getAllParents(709)).to.deep.equal(
+      [],
+      'wrong parrents returned by id'
     );
   });
 });
