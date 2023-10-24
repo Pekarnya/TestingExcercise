@@ -1,7 +1,7 @@
 {
   "name": "testingexcercise",
   "version": "0.1.0",
-  "description": "Testing excercise on Frontend developer / Vue.js",
+  "description": "Testing excercise / Frontend developer / Vue.js",
   "main": "webpack.config.js",
   "scripts": {
     "test": "mocha",
@@ -11,7 +11,10 @@
   },
   "keywords": [
     "excercise",
-    "graphs"
+    "graphs",
+    "typescript",
+    "vue js",
+    "frontend"
   ],
   "author": "Peka",
   "license": "ISC",
